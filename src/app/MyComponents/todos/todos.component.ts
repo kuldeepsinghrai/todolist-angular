@@ -8,31 +8,37 @@ import { Todo } from 'src/app/Todo';
 })
 export class TodosComponent implements OnInit {
 
-  todos:Todo[];
-  constructor() { 
-    this.todos=[
+  todos: Todo[];
+  constructor() {
+    this.todos = [
       {
-        sno:1,
-        title:'This is Title',
-        desc:'This is Description',
-        isActive:true
+        sno: 1,
+        title: 'This is Title',
+        desc: 'This is Description',
+        isActive: true
       },
       {
-        sno:2,
-        title:'This is Title2',
-        desc:'This is Description',
-        isActive:true
+        sno: 2,
+        title: 'This is Title2',
+        desc: 'This is Description',
+        isActive: true
       },
       {
-        sno:3,
-        title:'This is Title4',
-        desc:'This is Description',
-        isActive:true
+        sno: 3,
+        title: 'This is Title3',
+        desc: 'This is Description',
+        isActive: true
       }
     ]
   }
 
   ngOnInit(): void {
+  }
+
+  deleteTodo(todo: Todo) {
+    console.log(todo);
+    const index = this.todos.indexOf(todo);
+    this.todos.splice(index, 1);
   }
 
 }
