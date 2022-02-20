@@ -34,4 +34,12 @@ export class TodosComponent implements OnInit {
     localStorage.setItem('todos', JSON.stringify(this.todos)); 
   }
 
+  toggleTodo(todo:Todo){
+    const index = this.todos.indexOf(todo);
+    this.todos[index].isActive=!this.todos[index].isActive;
+    localStorage.setItem('todos', JSON.stringify(this.todos)); 
+    
+
+  }
+
 }
