@@ -10,7 +10,7 @@ export class AddTodoComponent implements OnInit {
   title!: string;
   desc!: string;
 
-  
+
 
   @Output() todoAdd: EventEmitter<Todo> = new EventEmitter();
   constructor() { }
@@ -19,13 +19,16 @@ export class AddTodoComponent implements OnInit {
   }
   onSubmit() {
     const todo = {
-      sno:1,
-      title:this.title,
-      desc:this.desc,
-      isActive:true,
+      sno: 1,
+      title: this.title,
+      desc: this.desc,
+      isActive: true,
     }
-    this.todoAdd.emit(todo);
-
+    if (todo.title != null && todo.desc != null) {
+      this.todoAdd.emit(todo);
+    } else {
+      alert("Please fill all the fields")
+    }
   }
 
 }
